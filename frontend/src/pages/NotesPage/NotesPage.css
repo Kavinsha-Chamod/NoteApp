@@ -1,0 +1,94 @@
+.note_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Two columns for screens up to 1200px */
+  }
+
+  @media screen and (max-width: 815px) {
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* Single column for screens up to 768px */
+  }
+}
+.all_notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.circle:hover {
+  opacity: 0.8;
+  background-color: #000;
+}
+.create-note-modal {
+  position: fixed;
+  width: 300px;
+  background-color: #a2a2a2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.create-note-modal h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.create-note-modal hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.create-note-modal input[type="text"],
+.create-note-modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.create-note-modal textarea {
+  height: 100px;
+  resize: none;
+}
+
+.create-note-modal button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-note-modal button:hover {
+  background-color: #0056b3;
+}
+
+.create-note-modal button.cancel_btn {
+  background-color: #dc3545;
+}
