@@ -19,7 +19,7 @@ app.use("/users",userRouter);
 app.use("/notes",noteRouter);
 
 app.get("/",(req,res)=>{
-  res.send({message:"Api is working now"})
+  res.send({message:"Api is working" })
 })
 
 
