@@ -4,12 +4,11 @@ require('dotenv').config();
 const {connection} = require('./db');
 const userRouter = require("./routes/userRoutes");
 const noteRouter = require("./routes/noteRoutes");
-
 const app = express();
 
 app.use(cors(
   {
-    origin: ["http://localhost:3000"],
+    origin: [""],
     methods: ["GET","POST","PATCH","DELETE"],
     credentials: true
   
@@ -31,5 +30,4 @@ app.listen(async()=>{
   } catch (error) {
     console.log(error) 
   }
-  console.log('App is running');
 });
