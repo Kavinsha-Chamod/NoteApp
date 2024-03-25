@@ -1,23 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
-    {
-      "src": "./routes/noteRoutes",
-      "dest": "./routes/noteRoutes"
-    },
-    {
-      "src": "./routes/userRoutes.js",
-      "dest": "./routes/userRoutes.js"
-    },
-    {
-      "src": "/",
-      "dest": "/index.js"
-    }
+    { "handle": "filesystem" },
+    { "src": "/users/(.*)", "dest": "/users/$1" },
+    { "src": "/notes/(.*)", "dest": "/notes/$1" },
+    { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
