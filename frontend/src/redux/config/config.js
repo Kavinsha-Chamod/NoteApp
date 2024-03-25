@@ -1,1 +1,1 @@
-export const BASE_URL = 'noteapp-api.vercel.app';
+export const BASE_URL = 'http://localhost:4000';
