@@ -14,6 +14,7 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 app.use(express.json());
+app.options("",cors(corsConfig));
 app.use("/users",userRouter);
 app.use("/notes",noteRouter);
 
