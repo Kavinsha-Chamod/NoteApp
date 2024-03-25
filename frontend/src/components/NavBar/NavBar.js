@@ -16,7 +16,7 @@ export default function NavBar() {
   };
   return (
     <div className="header">
-      <a href="/notes" className="logo">
+      <a className="logo">
         MY NOTES
       </a>
       <div className="header-right">
