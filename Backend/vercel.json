@@ -1,7 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "handle": "filesystem" },
     { "src": "/users/(.*)", "dest": "/users/$1" },
     { "src": "/notes/(.*)", "dest": "/notes/$1" },
     { "src": "/(.*)", "dest": "/index.js" }
