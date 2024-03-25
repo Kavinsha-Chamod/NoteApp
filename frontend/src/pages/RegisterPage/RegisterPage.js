@@ -26,6 +26,12 @@ export default function RegisterPage() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Invalid email address!");
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
@@ -34,6 +40,7 @@ export default function RegisterPage() {
   };
 
   return (
+    
     <div className="register_page">
       <div className="reg_form_container">
         <form onSubmit={handleSignup}>
@@ -89,7 +96,7 @@ export default function RegisterPage() {
             />
             <div className="clearfix">
               <button type="submit" className="signupbtn">
-                Register
+              {loading ? "Registering..." : "Register"}
               </button>
               <p>
                 Already have an account?{" "}

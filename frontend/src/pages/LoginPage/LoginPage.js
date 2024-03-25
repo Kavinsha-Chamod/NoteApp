@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/users/userAction";
 
 export default function LoginPage() {
-  const { auth } = useSelector((state) => state.userReducer);
+  const { auth, loading } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const nav = useNavigate();
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,7 +66,7 @@ export default function LoginPage() {
             />
 
             <button type="button" onClick={handleLogin}>
-              Login
+            {loading ? "Logging..." : "Login"}
             </button>
             <label>
               <input type="checkbox" defaultChecked name="remember" /> Remember

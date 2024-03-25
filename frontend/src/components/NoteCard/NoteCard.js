@@ -11,6 +11,7 @@ export default function NoteCard({ title, body, _id }) {
   const finalRef = useRef(null);
   const [tempTitle, setTempTitle] = useState(title);
   const [tempBody, setTempBody] = useState(body);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   const handleUpdate = () => {
     if (!tempTitle.trim()) {
@@ -22,12 +23,14 @@ export default function NoteCard({ title, body, _id }) {
       setIsModalOpen(false);
     }
   };
-  const handleDelete = () => {
+  const handleDelete = async() => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete this note?"
     );
     if (isConfirmed) {
-      dispatch(deleteNotes(_id));
+      setDeleteLoading(true); // Set loading state to true when delete operation starts
+      await dispatch(deleteNotes(_id));
+      setDeleteLoading(false);
     }
   };
 
@@ -47,7 +50,7 @@ export default function NoteCard({ title, body, _id }) {
             Edit
           </button>
           <button onClick={handleDelete} className="note_btn_delete">
-            Delete
+          {deleteLoading ? "Deleting..." : "Delete"}
           </button>
         </div>
       </div>

@@ -73,7 +73,7 @@ export default function NotesPage() {
           onChange={(e) => setBody(e.target.value)}
         />
         <div>
-          <button onClick={createNote}>Create</button>
+          <button onClick={createNote}>{loading ? "Creating..." : "Create"}</button>
           <button className="cancel_btn" onClick={() => setIsModalOpen(false)}>
             Cancel
           </button>
