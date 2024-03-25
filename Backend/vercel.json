@@ -1,8 +1,14 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
-    { "src": "/users/(.*)", "dest": "/users/$1" },
-    { "src": "/notes/(.*)", "dest": "/notes/$1" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    { "src": "/users/(.*)", "dest": "./routes/userRoutes" },
+    { "src": "/notes/(.*)", "dest": "./routes/noteRoutes" },
+    { "src": "/(.*)", "dest": "/backend/index.js" }
   ]
 }
