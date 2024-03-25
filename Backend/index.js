@@ -4,17 +4,18 @@ require('dotenv').config();
 const {connection} = require('./db');
 const userRouter = require("./routes/userRoutes");
 const noteRouter = require("./routes/noteRoutes");
+const e = require('express');
 const port = process.env.PORT;
 const app = express();
-const corsConfig = {
-  origin: "*",
-  methods: ["GET","PATCH","POST","DELETE"],
-  credentials: true,
-};
 
-app.use(cors(corsConfig));
+app.use(cors(
+  {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true
+  }
+));
 app.use(express.json());
-app.options("",cors(corsConfig));
 app.use("/users",userRouter);
 app.use("/notes",noteRouter);
 
@@ -32,3 +33,5 @@ app.listen(port,async()=>{
   }
   console.log(`App is running on port ${port}`);
 });
+
+module.exports = app;
