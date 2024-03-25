@@ -14,7 +14,6 @@ export default function NavBar() {
       dispatch(logoutUser());
     }
   };
-
   return (
     <div className="header">
       <a href="/notes" className="logo">
