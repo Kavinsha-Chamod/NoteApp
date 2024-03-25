@@ -6,8 +6,13 @@ const userRouter = require("./routes/userRoutes");
 const noteRouter = require("./routes/noteRoutes");
 const port = process.env.PORT;
 const app = express();
+const corsConfig = {
+  origin: "*",
+  methods: ["GET","PATCH","POST","DELETE"],
+  credentials: true,
+};
 
-app.use(cors());
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use("/users",userRouter);
 app.use("/notes",noteRouter);
