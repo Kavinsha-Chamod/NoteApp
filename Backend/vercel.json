@@ -8,12 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/noteRoutes.js",
-      "dest": "/noteRoutes.js"
+      "src": "./routes/noteRoutes",
+      "dest": "./routes/noteRoutes"
     },
     {
-      "src": "/userRoutes.js",
-      "dest": "/userRoutes.js"
+      "src": "./routes/userRoutes.js",
+      "dest": "./routes/userRoutes.js"
     },
     {
       "src": "/",
