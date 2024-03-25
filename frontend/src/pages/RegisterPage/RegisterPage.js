@@ -30,8 +30,7 @@ export default function RegisterPage() {
       alert("Passwords do not match!");
       return;
     }
-
-    dispatch(registerUser(formData));
+    dispatch(registerUser(formData))
   };
 
   return (

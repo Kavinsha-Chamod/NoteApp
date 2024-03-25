@@ -45,6 +45,11 @@ export const registerUser = (obj) => async (distpatch) => {
       distpatch({ type: REGISTER_USER_ERROR , payload: message});
     }
   } catch (error) {
+    if (error.response && error.response.data && error.response.data.message === 'Email already exists') {
+      alert('Email already exists. Please use a different email.');
+    } else {
+      alert('Something went wrong. Please try again later.');
+    }
     distpatch({ type: REGISTER_USER_ERROR, payload: 'Something went wrong. Please try again later.' });
   }
 };

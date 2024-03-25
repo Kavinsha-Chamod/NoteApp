@@ -20,6 +20,17 @@ userRouter.get("/", async (req, res) => {
 
 userRouter.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
+
+  try {
+    const existingUser = await UserModel.findOne({ email });
+    if (existingUser) {
+      return res.status(400).send({ message: "Email already exists", status: 0 });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Error checking user existence", status: 0 });
+  }
+
   bcrypt.hash(password, 10, async (err, hash) => {
     if (err) {
       console.error(err);
